@@ -1,2 +1,14 @@
 <h1>Angular</h1>
+
 <courses></courses>
+
+<favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></favorite>
+
+<bootstrap-panel>
+    <div class="heading">
+        <h4>Heading</h4></div>
+    <div class="body">
+        <h4>Body</h4>
+        <p>Some contents ...</p>
+    </div>
+</bootstrap-panel>
