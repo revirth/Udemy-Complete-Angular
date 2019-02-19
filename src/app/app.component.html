@@ -23,3 +23,21 @@
     <div *ngSwitchCase="'list'">List View Content</div>
     <div *ngSwitchDefault>Otherwise</div>
 </div>
+
+<h2>Directives - ngStyle</h2>
+<div>
+    <button (click)="onChangeSaveButton()"
+        [ngStyle]="{
+            'backgroundColor': canSave ? 'blue':'gray',
+            'color': canSave ? 'white' : 'black',
+            'fontWeight': canSave ? 'bold' : 'normal' }"
+        >
+        Save
+    </button>
+</div>
+
+<h2>Directives - Safe Traversal Operator</h2>
+<span>{{task.assignee?.name}}</span>
+
+<h2>Directives - Custom</h2>
+<input type="text" [appInputFormat]="'uppercase'" />

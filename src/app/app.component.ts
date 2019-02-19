@@ -24,4 +24,16 @@ export class AppComponent {
   // Directives
   viewMode = '뷰모드';
 
+  canSave = true;
+  onChangeSaveButton() {
+    this.canSave = !this.canSave;
+  }
+
+  task = {
+    title: 'Review applications',
+    assignee: {
+      // name: 'John Snow'
+    }
+  }
+
 }

@@ -5,13 +5,20 @@ import { CoursesService } from './courses.service';
     selector: 'courses',
     template: `
     <h3>Events</h3>
+    <button (click)="onAdd()">Add Course</button>
+    <button (click)="onLoad()">Load Course</button>
     <ul (click)="onUlClicked()">
-        <li *ngFor="let course of courses">
+        <li *ngFor="let course of courses; even as isEven; trackBy: trackCourse">
             <button class="btn btn-primary" 
                     [class.active]="isActive"
-                    (click)="onSave($event)">{{ course }}</button>
+                    (click)="onSave($event)">{{ course.name }}</button>
+            
             <button class="btn btn-danger" 
                     (click)="onBubble($event)">BubbleUp</button>
+
+            <span *ngIf='isEven'>EVEN</span>
+
+            <button (click)="onRemove(course)">Remove</button>
         </li>
     </ul>
 
@@ -52,8 +59,10 @@ export class CoursesComponent {
         releaseDate: new Date(2017, 3, 1),  // https://angular.io/api/common/DatePipe
     };
     text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+    svc;
 
     constructor(service: CoursesService) {
+        this.svc = service;
         this.courses = service.getCourses();
     }
 
@@ -84,5 +93,24 @@ export class CoursesComponent {
 
     printMyEmail() {
         console.log(this.myEmail); // 2 Way Binding > app.module > imports FormsModule
+    }
+
+    //////////////////
+    // ngFor
+    //////////////////
+    onLoad() {
+        this.courses = this.svc.getCourses();
+    }
+    onAdd() {
+        this.courses.push({ id:4, name: 'course4'});
+    }
+
+    onRemove(course) {
+        let index = this.courses.indexOf(course);
+        this.courses.splice(index, 1);
+    }
+
+    trackCourse(index, course) {
+        return course ? course.id : undefined;
     }
 }
