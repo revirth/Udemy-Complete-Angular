@@ -21,4 +21,7 @@ export class AppComponent {
     console.log('Favorite changed: ', eventArgs.newValue);
   }
 
+  // Directives
+  viewMode = '뷰모드';
+
 }

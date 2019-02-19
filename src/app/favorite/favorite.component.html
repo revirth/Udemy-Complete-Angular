@@ -1,4 +1,12 @@
-<h3>Property</h3>
+<h3>Property 
+    <span *ngIf="isFavorite ; then Fav else noFav"></span>
+    <ng-template #Fav>
+        <span>♥</span>
+    </ng-template>
+    <ng-template #noFav>
+        <span>♡</span>
+    </ng-template>
+</h3>
 <p (click)="onClick()">{{ isFavorite ? '★' : '☆' }}</p>
 
 <!-- <span 
