@@ -1,0 +1,16 @@
+<form [formGroup]="form">
+  <div class="form-group">
+    <label>Name</label>
+    <input class="form-control" formControlName="name">
+    <div formGroupName="contact">
+      <label>Email</label><input class="form-control" formControlName="email" />
+      <label>Phone</label><input class="form-control" formControlName="phone" />
+    </div>
+    <label>Topics</label>
+    <input type="text" class="form-control" (keyup.enter)="addTopic(topic)" #topic>
+    <ul class="list-group">
+      <li *ngFor="let topic of topics.controls" (click)="removeTopic(topic)" class="list-group-item">{{ topic.value }}
+      </li>
+    </ul>
+  </div>
+</form>
