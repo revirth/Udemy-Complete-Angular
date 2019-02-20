@@ -22,7 +22,7 @@ export class DataService {
   }
 
   create(resource) {
-    return Observable.throw(new AppError());
+    // return Observable.throw(new AppError()); // occur un error
 
     return this.http.post(this.url, JSON.stringify(resource))
       .map(response => response)

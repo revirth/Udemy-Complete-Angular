@@ -12,10 +12,8 @@ import { BadInput } from '../common/bad-input';
 })
 export class PostsComponent implements OnInit {
   posts: any[];
-  http;
 
-  constructor(private service: PostService) {
-  }
+  constructor(private service: PostService) {}
 
   ngOnInit() {
     this.service.getAll()
