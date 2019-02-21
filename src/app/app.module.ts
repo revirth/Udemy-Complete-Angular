@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule, ErrorHandler } from '@angular/core';
 
@@ -10,7 +11,6 @@ import { FavoriteComponent } from './favorite/favorite.component';
 import { PanelComponent } from './panel/panel.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-import { SignupFormComponent } from './signup-form/signup-form.component';
 import { NewCourseFormComponent } from './new-course-form/new-course-form.component';
 import { PostsComponent } from './posts/posts.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,6 +22,9 @@ import { GithubProfileComponent } from './github-profile/github-profile.componen
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
 import { GithubFollowersComponent } from './github-followers/github-followers.component';
+import { MaterialComponent } from './material/material.component';
+import { MatComponentsModule } from './mat-components.module';
+import { EditCourseComponent } from './edit-course/edit-course.component';
 
 @NgModule({
   declarations: [
@@ -32,18 +35,24 @@ import { GithubFollowersComponent } from './github-followers/github-followers.co
     PanelComponent,
     InputFormatDirective,
     ContactFormComponent,
-    SignupFormComponent,
     NewCourseFormComponent,
     PostsComponent,
     NavbarComponent,
     HomeComponent,
     GithubProfileComponent,
     GithubFollowersComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    MaterialComponent,
+    EditCourseComponent
+  ],
+  entryComponents: [
+    EditCourseComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
+    MatComponentsModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
@@ -62,6 +71,10 @@ import { GithubFollowersComponent } from './github-followers/github-followers.co
       { 
         path: 'posts', 
         component: PostsComponent
+      },
+      { 
+        path: 'material', 
+        component: MaterialComponent
       },
       { 
         path: '**', 

@@ -1,0 +1,105 @@
+<h2>Checkbox</h2>
+<mat-checkbox
+  #showDetails
+  [value]=""
+  [checked]="isChecked"
+  (change)="onChange($event)"
+  >Subscribe to Newsletter</mat-checkbox>
+
+<div *ngIf="showDetails.checked">Details....</div>
+
+<h2>Radio</h2>
+<mat-radio-group value="0">
+  <mat-radio-button value="1">Male</mat-radio-button>
+  <mat-radio-button value="0">Female</mat-radio-button>
+</mat-radio-group>
+
+<h2>Select</h2>
+<mat-select [(ngModel)]="color">
+  <mat-option
+    *ngFor="let color of colors"
+    [value]="color.id">{{ color.name }}</mat-option>
+</mat-select>
+
+<h2>Input</h2>
+<mat-form-field>
+  <input 
+    ngModel
+    #username="ngModel"
+    name="username"
+    type="text" matInput placeholder="UserName" required>
+  <mat-hint>Type a username</mat-hint>
+  <span matSuffix>@domain.com</span>
+  <span matPrefix>admin.</span>
+  <mat-error *ngIf="username.invalid && username.errors.required">
+    username is required.
+  </mat-error>
+</mat-form-field>
+
+<h2>Textarea</h2>
+<mat-form-field>
+  <textarea matInput matTextareaAutosize rows="2"></textarea>  
+</mat-form-field>
+
+<h2>Datepicker</h2>
+<mat-form-field>
+  <input 
+    (focus)="picker.open()"
+    [min]="minDate"
+    [max]="maxDate"
+    matInput [matDatepicker]="picker" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker touchUi #picker></mat-datepicker>
+</mat-form-field>
+
+<h2>Icon</h2>
+<mat-icon>home</mat-icon>
+<mat-icon>add_alert</mat-icon>
+
+<h2>Button</h2>
+<button mat-button>Button1</button>
+<button color="primary" mat-raised-button>Primary</button>
+<button color="accent" mat-raised-button>Accent</button>
+<button color="warn" mat-raised-button>Warn</button>
+<button color="primary" mat-fab><mat-icon>check</mat-icon></button>
+
+<h2>Chips</h2>
+<mat-chip-list>
+  <mat-chip selected color="accent">One</mat-chip>
+  <mat-chip
+    *ngFor="let category of categories"
+    (click)="selectCategory(category)"
+    [selected]="category.selected"
+    >{{ category.name }}</mat-chip>
+</mat-chip-list>
+
+<h2>Spinner</h2>
+<mat-spinner mode="determinate" value="20"></mat-spinner>
+<mat-spinner mode="determinate" [value]="progress" color="accent"></mat-spinner>
+<mat-spinner mode="indeterminate" color="warn" *ngIf="isLoading"></mat-spinner>
+
+<h2>Tooltips</h2>
+<span 
+  matTooltip="Here is my tooltip"
+  matTooltipPosition="right">Some text</span>
+
+<h2>Tabs</h2>
+<mat-tab-group>
+  <mat-tab label="Billing">
+    Content of the Billing tab
+  </mat-tab>
+  <mat-tab label="Shipping">
+    Content of the shipping tab
+  </mat-tab>
+</mat-tab-group>
+
+<h2>Dialog</h2>
+<button
+  (click)="openDialog()"
+  mat-raised-button>Open Dialog</button>
+
+<h2>SASS</h2>
+<h3>Heading 3</h3>
+<h4>Heading 4</h4>
+<div class="box">&nbsp;</div>
+<div class="modern-box">&nbsp;</div>

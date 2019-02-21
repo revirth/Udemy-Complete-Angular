@@ -1,0 +1,29 @@
+$color: green;
+
+h3 {
+    // ...
+    color: $color;
+ }
+
+h4 {
+    // ...
+    color: $color;
+ }
+
+ @mixin soft-border($border-radius) {
+    border: 1px solid #ccc;
+    border-radius: $border-radius;
+    padding: 10px;
+}
+ .box {
+    //  border: 1px solid #ccc;
+    //  border-radius: 5px;
+    //  padding: 10px;
+    @include soft-border(5px);
+ }
+ .modern-box {
+    // border: 1px solid #ccc;
+    // border-radius: 5px;
+    // padding: 10px;
+    @include soft-border(10px);
+}
