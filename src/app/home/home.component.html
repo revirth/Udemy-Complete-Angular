@@ -1,3 +1,50 @@
-<p>
-  home works!
-</p>
+<courses></courses>
+
+<favorite [is-favorite]="post.isFavorite" (change)="onFavoriteChanged($event)"></favorite>
+
+<bootstrap-panel>
+    <div class="heading">
+        <h4>Heading</h4></div>
+    <div class="body">
+        <h4>Body</h4>
+        <p>Some contents ...</p>
+    </div>
+</bootstrap-panel>
+
+<h2>Directives</h2>
+<ul class="nav nav-pills">
+    <li class="nav-item"><a class="nav-link" [class.active]="viewMode == 'map'" (click)="viewMode = 'map'">Map View</a></li>
+    <li class="nav-item"><a class="nav-link"  [class.active]="viewMode == 'list'" (click)="viewMode = 'list'">List View</a></li>
+</ul>
+<div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'map'">Map View Content</div>
+    <div *ngSwitchCase="'list'">List View Content</div>
+    <div *ngSwitchDefault>Otherwise</div>
+</div>
+
+<h2>Directives - ngStyle</h2>
+<div>
+    <button (click)="onChangeSaveButton()"
+        [ngStyle]="{
+            'backgroundColor': canSave ? 'blue':'gray',
+            'color': canSave ? 'white' : 'black',
+            'fontWeight': canSave ? 'bold' : 'normal' }"
+        >
+        Save
+    </button>
+</div>
+
+<h2>Directives - Safe Traversal Operator</h2>
+<span>{{task.assignee?.name}}</span>
+
+<h2>Directives - Custom</h2>
+<input type="text" [appInputFormat]="'uppercase'" />
+
+<h2>Form</h2>
+<contact-form></contact-form>
+
+<h2>Reactive Form</h2>
+<signup-form></signup-form>
+
+<h2>FormArray</h2>
+<new-course-form></new-course-form>

@@ -8,6 +8,7 @@ import { CoursesComponent } from './courses.component';
 import { CoursesService } from './services/courses.service';
 import { SummaryPipe } from './summary.pipe';
 import { FavoriteComponent } from './favorite/favorite.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
 import { PanelComponent } from './panel/panel.component';
 import { InputFormatDirective } from './input-format.directive';
 import { ContactFormComponent } from './contact-form/contact-form.component';
@@ -34,6 +35,7 @@ import { EditCourseComponent } from './edit-course/edit-course.component';
     FavoriteComponent,
     PanelComponent,
     InputFormatDirective,
+    SignupFormComponent,
     ContactFormComponent,
     NewCourseFormComponent,
     PostsComponent,
